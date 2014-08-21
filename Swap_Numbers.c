@@ -49,13 +49,11 @@ int main()
 	break;
 	
 	case 4:
-			printf("4. Pointers\n");
-			x=&a;
-			y=&b;
-
-			printf("a= % d and b = %d\n",*y,*x);
-			break;
-		break;
+		printf("4. Pointers\n");
+		x=&a;
+		y=&b;
+		printf("a= % d and b = %d\n",*y,*x);
+	break;
 	}
 	
 	time (&end);
