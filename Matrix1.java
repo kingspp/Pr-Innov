@@ -18,7 +18,7 @@ Created on Aug 21, 2014
  *  79  80  81
  *  
  *    Change the ROW,COL to suit the matrix [Make sure ROW==COL] !!square matrix only!!
- *    Change the Start to make the Start of the diagonal element 
+ *    Change the Start to change the start of the diagonal element 
  */
 
 public class Pr1 {
