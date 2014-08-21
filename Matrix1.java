@@ -33,7 +33,7 @@ public class Pr1 {
 			System.out.println("Make sure ROW and COL are equal");
 			System.exit(0);
 		}
-
+		
 		System.out.println("Step1: Initialize the matrix with 0");
 		mat.initMatrix();
 		mat.printMatrix();
@@ -51,15 +51,12 @@ public class Pr1 {
 						Matrix.mat[row][col] = (int) Math.pow(Matrix.START, 2);
 						Matrix.START = Matrix.mat[row][col];
 					}
-
 				}
-
 			}
 		}
-
 		mat.printMatrix();
 		System.out.println("\n\n");
-
+		
 		System.out.println("Step3: Add +1 if row<col and -1 if row>col");
 		for (row = 0; row < Matrix.ROW; row++) {
 			a = 1;
