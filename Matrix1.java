@@ -1,4 +1,11 @@
-/*To get a matrix like
+/*
+Created on Aug 21, 2014
+
+@author: Prathyush
+*/
+
+
+/*To get a matrix as such:
  * 
  *  a       a+1    a+2    a+3    . . . 
  *  a^2 -1  a^2    a^2+1  a^2+2  . . .
