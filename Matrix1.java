@@ -38,8 +38,7 @@ public class Pr1 {
 		mat.initMatrix();
 		mat.printMatrix();
 		System.out.println("\n\n");
-		System.out
-				.println("Step2: Now Change the diagonal elements to the square of the previous diagonal number");
+		System.out.println("Step2: Now Change the diagonal elements to the square of the previous diagonal number");
 		// print the diagonal
 		for (row = 0; row < Matrix.ROW; row++) {
 			a = 0;
