@@ -24,7 +24,7 @@ Created on Aug 21, 2014
 public class Pr1 {
 	public static void main(String v[]) {
 		double start = System.nanoTime();
-		int a = 1, b = 1;
+		int a = 1;
 		Matrix mat = new Matrix();
 		int row = mat.row;
 		int col = mat.col;
