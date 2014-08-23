@@ -1,3 +1,16 @@
+/*
+Created on Aug 21, 2014
+
+@author: Prathyush
+*/
+
+/*
+This program converts the input to uppercase and then prints the reverse of that character. 
+The program takes space into consideration.
+Example : i/p: MYSORE
+	  o/p: NBHLIV
+*/
+
 import java.util.Scanner;
 
 public class azby {
