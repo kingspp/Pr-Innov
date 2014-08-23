@@ -4,6 +4,12 @@ Created on Aug 23, 2014
 @author: Prathyush
 '''
 
+'''
+In this program , an input is given and the ouput witth be the no of times each characer will be repeated.
+ex: i/p: Hello
+    o/p: H1 e1 l2 l2 o1
+'''
+
 
 import time
 print 'Word Count:'
