@@ -24,4 +24,4 @@ elif (dir==2):
     dhr=(dhr*30)+(0.5*t)
     dangle=abs(dhr-dmin)
     
-print dangle
+print "The angle formed by Hour hand and Minute Hand is: "+str(dangle)
