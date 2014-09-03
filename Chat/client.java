@@ -7,6 +7,7 @@ class Client
 	{
 		System.out.println("Client Started");
 		Scanner scan=new Scanner(System.in);
+		System.out.print("Enter the Port");;
 		int port=scan.nextInt();
 		//Socket s=new Socket("Hello",port);
 		

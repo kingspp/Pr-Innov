@@ -1,14 +1,34 @@
+/*
+
+Default: 
+Port =1500
+
+Commands:
+java server [port]
+
+*/
+
 import java.net.*;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+
 class Server
 {
-	private SimpleDateFormat sdf;
-	public static void main(String v[]) throws Exception
+	private static SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yy  HH:mm");
+	public static void main(String args[]) throws Exception
 	{
-		final int port=1500;
+		int port=1500;
+		String date= new Date().toString();
+		date = sdf.format(new Date()).toString();
+		
+		//if (args[0]!="\0") port=Integer.parseInt(args[0]);
+		//else port=1500;
+		
 		System.out.println("Start of server..");
+		System.out.println(date);
+		
 		ServerSocket obj = new ServerSocket(port);
-		display();
+		
 		while(true)
 		{
 			Socket s=null;
@@ -16,18 +36,10 @@ class Server
 			{
 				s=obj.accept();
 				System.out.println(s);
-			}
-			
-			
+			}			
 		}
 		
 	}
 	
-	private void display(String msg) {
-		String time = sdf.format(new Date()) + " " + msg;
-		if(sg == null)
-			System.out.println(time);
-		else
-			sg.appendEvent(time + "\n");
-	}
+	
 }
