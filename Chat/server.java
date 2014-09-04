@@ -19,13 +19,14 @@ import java.util.Scanner;
 
 class Server
 {
-	
+	private static String []user=new String[10];
 	private static String username; 
 	private static ObjectOutputStream sOutput;
 	private static ObjectInputStream sInput;
 	private static SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yy  HH:mm");
 	public static void main(String args[]) throws Exception
 	{
+		int i=0;
 		int port=1500;
 		Scanner scan=new Scanner(System.in);
 		String date= new Date().toString();
@@ -60,6 +61,8 @@ class Server
 				// read the username
 				username = (String) sInput.readObject();
 				System.out.println(username + " just connected.");
+				user[i]=username;
+				i++;
 			}
 			catch (IOException e) {
 				System.out.println("Exception creating new Input/output Streams: " + e);
