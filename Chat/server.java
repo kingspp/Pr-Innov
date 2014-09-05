@@ -1,12 +1,9 @@
-/*
-
-Default: 
-Port =1500
-
-Commands:
-java server [port]
-
-*/
+/* Created on 22-08-14
+ * @author Prathyush SP
+ * 
+ *  Commands:
+ *	java server [port] [servername]
+ */
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -24,58 +21,83 @@ class Server
 	private static ObjectOutputStream sOutput;
 	private static ObjectInputStream sInput;
 	private static SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yy  HH:mm");
-	public static void main(String args[]) throws Exception
-	{
-		int i=0;
-		int port=1500;
-		Scanner scan=new Scanner(System.in);
-		String date= new Date().toString();
-		date = sdf.format(new Date()).toString();
+	private static String servername;
+	private static int port;
+	private Scanner scan=new Scanner(System.in);
+	private static String args[];
+	String date= sdf.format(new Date()).toString();
+	ServerSocket obj ;
+	
+	
+	public  boolean init(){
+		System.out.print("Enter the Port: ");
+		port=Integer.parseInt(scan.nextLine());
+		System.out.print("Enter the Servername:  ");
+		servername=scan.nextLine();	
+		System.out.println("");
+		return true;
+	}
+	
+	public boolean def(){
+		port=1500;
+		servername="Developer Server";
+		return true;
+	}
 		
-		if (args.length>0) 
-			port=Integer.parseInt(args[0]);
-		else 
-			System.out.println("Enter the port no: ");
-			port=scan.nextInt();
-		
-		System.out.println("Start of server..");
+	public boolean start() {
+		System.out.println("Start of "+servername);
 		System.out.println(date);
+		try{
+		obj=new ServerSocket(port);}
+		catch(Exception ex){}
 		
-		ServerSocket obj = new ServerSocket(port);
 		
-		while(true)
-		{
+		while(true)		{
 			
 			Socket s=null;
 			while(s==null)
 			{
+				try{
 				s=obj.accept();
+				}
+				catch(Exception ex){}
 				System.out.println(s);
+				try
+				{
+					// create output first
+					sOutput = new ObjectOutputStream(s.getOutputStream());
+					sInput  = new ObjectInputStream(s.getInputStream());
+					// read the username
+					username = (String) sInput.readObject();
+					System.out.println(username + " just connected.");
+					//user[i]=username;
+					//i++;
+					sOutput.writeObject(servername);
+				}
+				catch (IOException e) {
+					System.out.println("Exception creating new Input/output Streams: " + e);
+					return false;
+				}
+				// have to catch ClassNotFoundException
+				// but I read a String, I am sure it will work
+				catch (ClassNotFoundException e) {
+				}
+	            date = new Date().toString() + "\n";
+			}
 			}		
-			
-			try
-			{
-				// create output first
-				sOutput = new ObjectOutputStream(s.getOutputStream());
-				sInput  = new ObjectInputStream(s.getInputStream());
-				// read the username
-				username = (String) sInput.readObject();
-				System.out.println(username + " just connected.");
-				user[i]=username;
-				i++;
-			}
-			catch (IOException e) {
-				System.out.println("Exception creating new Input/output Streams: " + e);
-				return;
-			}
-			// have to catch ClassNotFoundException
-			// but I read a String, I am sure it will work
-			catch (ClassNotFoundException e) {
-			}
-            date = new Date().toString() + "\n";
-		}
+		
 		
 	}
 	
-	
+	public static void main(String args[]) throws Exception	{
+		Server server=new Server();		
+		if (args.length==2) {
+			port=Integer.parseInt(args[0]);
+			servername=args[1];
+		}
+		else
+			//server.init();
+			server.def();
+		server.start();		
+	}	
 }

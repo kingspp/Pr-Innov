@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 class Client 
@@ -16,12 +18,14 @@ class Client
 	private ObjectInputStream sInput;		// to read from the socket
 	private ObjectOutputStream sOutput;		// to write on the socket
 	private Socket s;
+	private static SimpleDateFormat sdf =  new SimpleDateFormat("dd/MM/yy  HH:mm");
 	private static String server, username;
 	private static int port;
 	private Scanner scan=new Scanner(System.in);
+	String date= sdf.format(new Date()).toString();
+	private String servername;	
 	
-	
-	public boolean initilize(){
+	public boolean init(){
 		System.out.print("Enter the Server Address: ");
 		server=scan.nextLine();
 		System.out.print("Enter the Port: ");
@@ -32,6 +36,12 @@ class Client
 		return true;
 	}
 	
+	public boolean def(){
+		server="localhost";
+		port=1500;
+		username="King";
+		return true;
+	}
 
 	public boolean start() {		
 		try {
@@ -40,7 +50,7 @@ class Client
 		
 		catch(Exception ec) {		
 			System.out.println("Error connectiong to server:" + ec);
-			initilize();
+			init();
 			return false;
 		}
 		String msg = "Connection accepted " + s.getInetAddress() + ":" + s.getPort();
@@ -51,16 +61,16 @@ class Client
 		{
 			sInput  = new ObjectInputStream(s.getInputStream());
 			sOutput = new ObjectOutputStream(s.getOutputStream());
+			
 		}
-		catch (IOException eIO) {
-			System.out.println("Exception creating new Input/output Streams: " + eIO);
-			return false;
-		}
+		catch(Exception ex){}
+		
 
 		new ListenFromServer().start();
 		try
 		{
 			sOutput.writeObject(username);
+			
 		}
 		catch (IOException eIO) {
 			System.out.println("Exception doing login : " + eIO);			
@@ -84,14 +94,10 @@ class Client
 		}
 		
 		else		
-		client.initilize();
-		
-		client.start();
-		
-		
-		
-	}
-	
+		//client.init();
+		client.def();
+		client.start();	
+	}	
 	
 	class ListenFromServer extends Thread {
 
@@ -99,15 +105,13 @@ class Client
 			while(true) 
 				try {
 					String msg = (String) sInput.readObject();
-					// if console mode print the message and add back the prompt
-					
+					// if console mode print the message and add back the prompt					
 						System.out.println(msg);
-						System.out.print("> ");
-					
+						System.out.print("> ");					
 				}
 				catch(IOException e) {
 					System.out.println("Server has close the connection: " + e);
-					
+					System.exit(0);
 				}
 				// can't happen with a String object but need the catch anyhow
 				catch(ClassNotFoundException e2) {
