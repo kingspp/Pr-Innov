@@ -17,6 +17,7 @@ import java.util.Scanner;
 class Server
 {
 	private static String []user=new String[10];
+	private static int uniqueId;
 	private static String username; 
 	private static ObjectOutputStream sOutput;
 	private static ObjectInputStream sInput;
@@ -59,6 +60,9 @@ class Server
 			{
 				try{
 				s=obj.accept();
+				ClientThread t = new ClientThread(s);  // make a thread of it
+				//al.add(t);									// save it in the ArrayList
+				t.start();
 				}
 				catch(Exception ex){}
 				System.out.println(s);
@@ -100,4 +104,24 @@ class Server
 			server.def();
 		server.start();		
 	}	
+	
+	class ClientThread extends Thread{
+		Socket socket;
+		ObjectInputStream sInput;
+		ObjectOutputStream sOutput;
+		int id;
+		String username;
+		String date;
+		
+		public ClientThread(Socket socket) {
+			// TODO Auto-generated constructor stub
+			id = ++uniqueId;
+			this.socket=socket;
+			System.out.println("Thread is being created");
+		}
+		
+	}
 }
+
+
+
