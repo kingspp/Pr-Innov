@@ -72,7 +72,7 @@ class Server
 					System.out.println(username + " just connected.");
 					//user[i]=username;
 					//i++;
-					sOutput.writeObject(servername);
+					sOutput.writeObject("Connected to "+servername);
 				}
 				catch (IOException e) {
 					System.out.println("Exception creating new Input/output Streams: " + e);

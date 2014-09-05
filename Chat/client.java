@@ -107,16 +107,13 @@ class Client
 					String msg = (String) sInput.readObject();
 					// if console mode print the message and add back the prompt					
 						System.out.println(msg);
-						System.out.print("> ");					
-				}
+						System.out.print("> ");	}
 				catch(IOException e) {
 					System.out.println("Server has close the connection: " + e);
-					System.exit(0);
-				}
+					System.exit(0);	}
 				// can't happen with a String object but need the catch anyhow
-				catch(ClassNotFoundException e2) {
-				}
-		}
+				catch(ClassNotFoundException e2) {}
+			}
 	}
 }
 
