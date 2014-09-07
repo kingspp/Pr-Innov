@@ -1,3 +1,18 @@
+/*
+Created on 7-09-2014
+@Author : Prathyush
+
+Matrix : Dynamic MAtrix with Dynamic Input:
+for ex: Consider 2x2 Matrix:
+I/p: 1	2
+     3	4
+    
+o/p: 1	2     3
+     3	4     7
+     
+     4	6     20
+*/
+
 #include<stdio.h>
 #include<conio.h>
 
@@ -5,6 +20,7 @@ int row,col;
 int i,j,k;
 int mat[100][100];
 int r=0,c=0;
+
 void getIn()
 {
 printf("Enter the elements of the Matrix: \n");
