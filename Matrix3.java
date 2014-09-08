@@ -1,3 +1,19 @@
+/*
+Created on: 8-09-2014
+@Author: Prathyush
+
+This is another matrix example in java
+It accepts only odd input
+
+for ex: i/p: 5
+the output is:   3	3	3	3	3
+	  	 3	2	2	2	3
+	         3      2	1	2	3
+		 3	2	2	2	3
+		 3	3	3	3	3
+*/ 
+
+
 import java.util.Scanner;
 
 public class Matrix {	
