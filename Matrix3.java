@@ -14,13 +14,14 @@ the output is:   3	3	3	3	3
 */ 
 
 
-import java.util.Scanner;
+import java.util.Scanner; // To get the input  from the user
 
 public class Matrix {	
 	static int ROW=500,COL=500;	
 	static int mat[][]= new int[ROW][COL];
 	int i,j,k,l,n,m,r,c;
 	
+	//Function  to print the Matrix
 	public void printMat()
 	{
 		System.out.println("The output matrix is: ");
@@ -33,6 +34,7 @@ public class Matrix {
 		System.out.println("\n");
 	}
 	
+	//Function  to initialize the Matrix with zeros
 	public void init()
 	{
 		for(i=0;i<ROW;i++)		
@@ -40,6 +42,7 @@ public class Matrix {
 				mat[i][j]=0;
 	}
 	
+	//Function to get the diagonal elements first
 	public void diag()
 	{
 		int n=((int)(ROW/2))+1; 
@@ -62,6 +65,7 @@ public class Matrix {
 			}
 	}
 	
+	//Function to print the numbers in circular manner
 	public void cal()
 	{		
 		r=ROW;
@@ -70,17 +74,17 @@ public class Matrix {
 			n=1;				
 			for(j=i+1,l=r;j<r;j++,l--)
 			{
-				mat[i][j]=mat[i][j-1];
-				mat[j][i]=mat[i][j-1];				
-				mat[l-1][k-1]=mat[r-n][r-n];
-				mat[k-1][l-1]=mat[r-n][r-n];					
+				mat[i][j]=mat[i][j-1]; // Column right
+				mat[j][i]=mat[i][j-1]; // Row Down				
+				mat[l-1][k-1]=mat[r-n][r-n]; // Row Up
+				mat[k-1][l-1]=mat[r-n][r-n]; // Column left					
 			}
 			n++;
 			r--;				
 		}			
 	}
 	
-	
+	//Main Function
 	public static void main(String args[])
 	{
 		Scanner scan=new Scanner(System.in);	
@@ -94,5 +98,4 @@ public class Matrix {
 		mat.printMat();
 		scan.close();
 	}
-
 }
