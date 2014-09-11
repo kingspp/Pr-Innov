@@ -22,7 +22,7 @@ class Shop{
 	}
 }
 
-class Producer extends Thread  {
+class Producer extends Thread{
 	Shop s;
 	int book;
 	synchronized public void run(){
@@ -44,20 +44,20 @@ class Consumer extends Thread{
 
 class PC{
 	public static void main(String args[]){
-	System.out.println("Start of the Transaction...");
-	try{Thread.sleep(1000);}catch(Exception ex){}
-	Producer producer=new Producer();
-	Consumer consumer=new Consumer();
-	producer.s=consumer.s=new Shop();	
-	producer.book=10;
-	consumer.book=20;
-	try{
-	producer.start();	
-	consumer.start();
-	producer.join();
-	consumer.join();
-	}
-	catch(Exception ex){}	
-	System.out.println("End of the Transaction");
+		System.out.println("Start of the Transaction...");
+		try{Thread.sleep(1000);}catch(Exception ex){}
+		Producer producer=new Producer();
+		Consumer consumer=new Consumer();
+		producer.s=consumer.s=new Shop();	
+		producer.book=10;
+		consumer.book=20;
+		try{
+		producer.start();	
+		consumer.start();
+		producer.join();
+		consumer.join();
+		}
+		catch(Exception ex){}	
+		System.out.println("End of the Transaction");
 	}
 }
