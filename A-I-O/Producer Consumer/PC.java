@@ -1,3 +1,11 @@
+/*
+Created on 11-09-14
+@Author: Prathyush
+
+This example deals with the Inter-Thread-Communication.
+It is a classic Producer-Consumer Problem.
+
+*/
 class Shop{
 	int number;
 	boolean book=false;
