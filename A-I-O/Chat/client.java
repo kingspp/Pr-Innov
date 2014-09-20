@@ -3,6 +3,7 @@
  * 
  *  Commands:
  *	java client [server address] [port] [username]
+ This supports multiple client and a single server
  */
 
 import java.io.IOException;
