@@ -1,11 +1,19 @@
 /*
 Created on Aug 24, 2014
-
 @author: Prathyush
-*/
-
-/*
 This program print the Diamond Pattern.
+MAX=6
+		  *
+		*   *
+	      *   *   *
+            *   *   *   *
+          *   *   *   *   *
+	*   *   *   *   *   *
+	  *   *   *   *   *
+	    *   *   *   *
+	      *   *   *
+	        *   *
+	          *
 Change the MAX variable to suit your needs.
 */
 
