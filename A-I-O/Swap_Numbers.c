@@ -3,6 +3,12 @@
  *
  *  Created on: Aug 21, 2014
  *      Author: Prathyush
+ *  Description: This program demonstrates the ways of swapping the numbers
+ *  There are 4 ways:
+ *  1. Using Temporary Variable
+ *  2. Using Arithmetic Operations
+ *  3. Using Logical Operations
+ *  4. Using Pointers
  */
 
 #include <stdio.h>
@@ -55,10 +61,8 @@ int main()
 		printf("a= % d and b = %d\n",*y,*x);
 	break;
 	}
-	
 	time (&end);
 	double dif = difftime (end,start);
 	printf ("Elasped time is %.2lf seconds.", dif );
 	return 0;
 }
-
