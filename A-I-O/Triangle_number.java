@@ -1,14 +1,19 @@
 /*
 Created on Dec 21, 2014
-
 @author: Prathyush
+Triangle number: It is a number is a figurate number that can be represented in the form of a triangular grid of points.
+Ex: First 3 Triangle numbers are 1,3,6
+Variable "tl" defines the number of triangle numbers to be found
+
+											
+												          *
+													*   *
+												      *   *   *
+						      *					            *   *   *   *
+						    *	*				          *   *   *   *   *
+		*				  *   *	  *					*   *   *   *   *   *
+		1				      3	      					          6
 */
-
-
-/*
- * 
- */
-
 import java.util.*;
 
 public class Triangle_number{
