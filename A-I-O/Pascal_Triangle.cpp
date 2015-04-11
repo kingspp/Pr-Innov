@@ -1,4 +1,17 @@
+/*
+Date: Sep 10 , 2014
+@Author: Prathyush SP
 
+Description: Pascals Triangle. 
+The pattern is defined by "row variable"
+row=7
+		   1                                                                                                                                                                                                                                                      
+		 1   1                                                                                                                                                                                                                                                    
+	       1   2    1                                                                                                                                                                                                                                                  
+	     1   3    3    1                                                                                                                                                                                                                                                
+	   1   4    6    4   1                                                                                                                                                                                                                                              
+	 1   5   10   10   5   1   
+*/
 
 #include<iostream.h>
 #include<conio.h>
@@ -11,7 +24,7 @@ int fact(int x)
 	return res;
 }
 
-void main()
+int main()
 {
 	int n,k,row=7;
 	int pt=1;
@@ -26,4 +39,5 @@ void main()
 	cout<<"\n";
 	}
 	getch();
+	return 0;
 }
