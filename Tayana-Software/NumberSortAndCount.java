@@ -6,7 +6,7 @@ Description: This program aims to find the count of, randomly distributed number
 */
 
 import java.util.Random;
-public class NumberSort {
+public class NumberSortAndCount {
 	public static void main(String v[]){
 		Random random = new Random();	
 		int[] numberArray = new int[100];
